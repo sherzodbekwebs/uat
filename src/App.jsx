@@ -120,7 +120,9 @@ const CatalogPage = () => {
               Контактный центр
             </p>
             <h3 style={{ fontSize: '32px', color: '#0f172a', margin: 0, fontWeight: '800' }}>
-              71 202 32 23
+              <a href="tel:+998712023223" style={{ textDecoration: 'none', color: 'inherit' }}>
+                71 202 32 23
+              </a>
             </h3>
           </div>
 
@@ -254,7 +256,81 @@ const TruckDetails = () => {
               <p>{truck.Финансирование_лизинг_рассрочка}</p>
             </div>
 
-            {/* ... Qolgan qismlar o'zgarishsiz ... */}
+            <div className="info-section-item" style={{ background: '#f8fafc', padding: '20px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', color: '#1e293b' }}>
+                <Activity size={20} color="#6366f1" /> <strong style={{ fontSize: '18px' }}>Эксплуатационные свойства</strong>
+              </div>
+              <p>{truck.Эксплуатационные_свойтва}</p>
+            </div>
+
+            <div className="info-section-item" style={{ background: '#eff6ff', padding: '20px', borderRadius: '12px', border: '1px solid #bfdbfe' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', color: '#1e40af' }}>
+                <TrendingDown size={20} color="#3b82f6" /> <strong style={{ fontSize: '18px' }}>Стоимость владения в год</strong>
+              </div>
+              <p>{truck.Стоимость_владения_в_год}</p>
+            </div>
+
+            {truck.competitors && truck.competitors.length > 0 && (
+              <div style={{ marginTop: '40px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                  <ArrowRightLeft size={24} color="#f59e0b" />
+                  <strong style={{ fontSize: '24px', color: '#1e293b' }}>Конкуренты и сравнение</strong>
+                </div>
+
+                <div className="competitors-grid">
+                  {truck.competitors.map((comp, index) => (
+                    <div className="competitor-card" key={index}>
+                      <div className="comp-img-placeholder">
+                        {comp.imgk ? (
+                          <img src={comp.imgk} alt={comp.name} />
+                        ) : (
+                          <span style={{ color: '#cbd5e1' }}>Нет фото</span>
+                        )}
+                      </div>
+
+                      <div className="comp-main-info">
+                        <h3 className="comp-title">{comp.name}</h3>
+                        <div className="comp-price">{comp.price}</div>
+
+                        <div className="comp-spec-mini">
+                          <div className="comp-mini-card">
+                            <b>Двигатель/Мощность</b>
+                            {comp.engine} / {comp.power}
+                          </div>
+                          <div className="comp-mini-card">
+                            <b>Топливо/Бак</b>
+                            {comp.fuel} / {comp.tank}
+                          </div>
+                          <div className="comp-mini-card">
+                            <b>Колесная формула</b>
+                            {comp.formula}
+                          </div>
+                          <div className="comp-mini-card">
+                            <b>Грузоподъемность</b>
+                            {comp.load}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="comp-details-text">
+                        <div className="comp-text-item">
+                          <strong>Сервис и запчасти:</strong>
+                          {comp.Наличие_фирменного_сервиса}. {comp.Доступность_ЗЧ}
+                        </div>
+                        <div className="comp-text-item" style={{ background: '#f0fdf4', padding: '10px', borderRadius: '8px' }}>
+                          <strong>Финансирование:</strong>
+                          {comp.Финансирование_лизинг_рассрочка}
+                        </div>
+                        <div className="comp-text-item">
+                          <strong>Эксплуатационные свойства:</strong>
+                          {comp.Эксплуатационные_свойтва}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
