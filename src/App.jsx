@@ -68,7 +68,12 @@ const CatalogPage = () => {
       {/* TRUCK GRID (Katalog qismi) */}
       <div className="truck-grid">
         {filteredTrucks.map(truck => (
-          <div className="truck-card" key={truck.id} onClick={() => navigate(`/truck/${truck.id}`)}>
+          <div 
+            className="truck-card" 
+            key={truck.id} 
+            onClick={() => navigate(`/truck/${truck.id}`)}
+            style={{ backgroundColor: truck.status ? '#dcfce7' : '#fef9c3' }} // SHART SHU YERDA
+          >
             <img src={truck.img} alt="img" />
             <div className="card-info"></div>
           </div>
@@ -77,76 +82,63 @@ const CatalogPage = () => {
 
       {/* --- RANG KO'RSATKICHLARI (LEGEND) --- */}
       <div style={{
-        maxWidth: '600px',
-        margin: '40px auto 20px auto',
+        maxWidth: '100%',
+        // margin: '40px auto 20px auto',
         display: 'flex',
         justifyContent: 'center',
-        gap: '30px',
+        gap: '100px',
+        alignItems: 'center',
         padding: '15px',
         background: '#f8fafc',
         borderRadius: '12px',
         border: '1px solid #e2e8f0'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{ width: '16px', height: '16px', backgroundColor: '#dcfce7', border: '2px solid #22c55e', borderRadius: '4px' }}></div>
-          <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>имеется в наличии</span>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#dcfce7', border: '2px solid #22c55e', borderRadius: '4px' }}></div>
+            <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>имеется в наличии</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#fef9c3', border: '2px solid #eab308', borderRadius: '4px' }}></div>
+            <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>по заказу</span>
+          </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{ width: '16px', height: '16px', backgroundColor: '#fef9c3', border: '2px solid #eab308', borderRadius: '4px' }}></div>
-          <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>по заказу</span>
+        <div style={{}}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: "50px",
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <p style={{ margin: '0 0 5px 0', color: '#64748b', fontSize: '13px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                Телефон call-центра:
+              </p>
+              <h3 style={{ fontSize: '20px', color: '#0f172a', margin: 0, fontWeight: '500' }}>
+                <a href="tel:+998712023223" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  71 202 32 23
+                </a>
+              </h3>
+            </div>
+            <div style={{ height: '50px', width: '1px', backgroundColor: '#e2e8f0', display: 'none' }}></div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
+          <img
+            src={taplink}
+            alt="taplink"
+            style={{ width: '80px', height: '80px', objectFit: 'contain', borderRadius: '18px', boxShadow: '0 4px 15px rgba(0,0,0,0.08)' }}
+          />
+          <span style={{ fontSize: '12px', color: '#94a3b8', fontWeight: '500' }}>Наши соцсети</span>
         </div>
       </div>
 
-      {/* --- PROFESSIONAL FOOTER --- */}
-      <footer style={{
-        marginTop: '20px',
-        padding: '40px 20px',
-        borderTop: '1px solid #e2e8f0',
-        backgroundColor: '#ffffff',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '25px'
-      }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: "50px",
-          justifyContent: 'center',
-          flexWrap: 'wrap'
-        }}>
-          <div style={{ textAlign: 'center' }}>
-            <p style={{ margin: '0 0 5px 0', color: '#64748b', fontSize: '13px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
-              Контактный центр
-            </p>
-            <h3 style={{ fontSize: '32px', color: '#0f172a', margin: 0, fontWeight: '800' }}>
-              <a href="tel:+998712023223" style={{ textDecoration: 'none', color: 'inherit' }}>
-                71 202 32 23
-              </a>
-            </h3>
-          </div>
-
-          <div style={{ height: '50px', width: '1px', backgroundColor: '#e2e8f0', display: 'none' }}></div> {/* Divider for desktop */}
-
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
-            <img
-              src={taplink}
-              alt="taplink"
-              style={{ width: '80px', height: '80px', objectFit: 'contain', borderRadius: '18px', boxShadow: '0 4px 15px rgba(0,0,0,0.08)' }}
-            />
-            <span style={{ fontSize: '12px', color: '#94a3b8', fontWeight: '500' }}>Наши соцсети</span>
-          </div>
-        </div>
-
-        <p style={{ margin: 0, color: '#94a3b8', fontSize: '12px' }}>
-          © {new Date().getFullYear()} UAT - UzAuto TRAILER. Все права защищены.
-        </p>
-      </footer>
     </div>
   );
 };
 
-// --- 2-SAHIFA: TRUCK DETAILS ---
+// --- 2-SAHIFA: TRUCK DETAILS (O'ZGARISHSIZ) ---
 const TruckDetails = () => {
   const { id } = useParams();
   const truck = TRUCKS_DATA.find(t => t.id === id);
