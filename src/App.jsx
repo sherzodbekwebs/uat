@@ -37,7 +37,9 @@ const CatalogPage = () => {
       </div>
 
       {/* 2. SAHIFA OXIRIGA TELEFON VA RASM QO'SHILDI */}
-      <div style={{ marginTop: '0px', textAlign: 'center', paddingBottom: '10px' }}>
+      <div style={{
+        marginTop: '0px', textAlign: 'center', paddingBottom: '10px', display: 'flex', gap: "40px", justifyContent: 'center', alignItems: 'center'
+      }}>
         <h3 style={{ fontSize: '24px', color: '#1e293b', marginBottom: '20px' }}>
           Телефон для связи: 71 202 32 23
         </h3>
@@ -51,7 +53,7 @@ const CatalogPage = () => {
   );
 };
 
-// --- 2-SAHIFA: TRUCK DETAILS (O'ZGARISHSIZ QOLDI) ---
+// --- 2-SAHIFA: TRUCK DETAILS ---
 const TruckDetails = () => {
   const { id } = useParams();
   const truck = TRUCKS_DATA.find(t => t.id === id);
@@ -60,6 +62,7 @@ const TruckDetails = () => {
 
   return (
     <div className="app-containerr">
+
       <div className="sticky-nav">
         <Link to="/" className="back-btn">
           <ArrowLeft size={18} /> Назад в каталог
@@ -68,8 +71,20 @@ const TruckDetails = () => {
 
       <div className="details-page">
         <div className="details-content">
-          <h1 style={{ fontSize: '32px', margin: '0' }}>{truck.name}</h1>
-          <div className="card-price" style={{ fontSize: '28px', margin: '15px 0' }}>{truck.price}</div>
+
+          {/* --- TEXNIKANING RASMI NOMI VA NARXIDAN OLDIN --- */}
+          <div style={{ marginBottom: '20px', display: 'flex', gap: "30px" }}>
+            <img
+              src={truck.img}
+              alt={truck.name}
+              style={{ maxWidth: '150px', objectFit: 'contain', borderRadius: '15px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}
+            />
+
+            <div>
+              <h1 style={{ fontSize: '32px', margin: '0' }}>{truck.name}</h1>
+              <div className="card-price" style={{ fontSize: '28px', margin: '15px 0' }}>{truck.price}</div>
+            </div>
+          </div>
 
           <div className="spec-grid">
             {truck.engine && truck.engine !== "x" && (
@@ -108,16 +123,16 @@ const TruckDetails = () => {
                 <b>Снаряженная масса</b> <span>{truck.Масса_снаряженного_полуприцеpa}</span>
               </div>
             )}
-            {truck.Масса_перевозимого_груза && truck.Масса_перевозимого_груза !== "" && (
+            {truck.Масса_перевозимого_груза && truck.Масса_перевозимого_груza !== "" && (
               <div className="spec-card">
                 <Weight size={20} color="#64748b" />
                 <b>Масса груза</b> <span>{truck.Масса_перевозимого_груза}</span>
               </div>
             )}
-            {truck.Полная_масса_полуприцепа && truck.Полная_масса_полуприцепа !== "" && (
+            {truck.Полная_масса_полуприцеpa && truck.Полная_масса_полуприцеpa !== "" && (
               <div className="spec-card">
                 <Scale size={20} color="#64748b" />
-                <b>Полная масса</b> <span>{truck.Полная_масса_полуприцепа}</span>
+                <b>Полная масса</b> <span>{truck.Полная_масса_полуприцеpa}</span>
               </div>
             )}
             <div className="spec-card">
@@ -169,23 +184,6 @@ const TruckDetails = () => {
               </div>
               <p>{truck.Стоимость_владения_в_год}</p>
             </div>
-
-            {/* <div className="info-section-item" style={{ background: '#fff1f2', padding: '20px', borderRadius: '12px', border: '1px solid #fecdd3' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', color: '#991b1b' }}>
-                <AlertTriangle size={20} color="#e11d48" /> <strong style={{ fontSize: '18px' }}>Слабые стороны</strong>
-              </div>
-              <p>{truck.Слабые_стороны}</p>
-            </div> */}
-
-            {/* <div className="info-section-item" style={{ background: '#fdfaf1', padding: '20px', borderRadius: '12px', border: '1px solid #fef08a' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', color: '#854d0e' }}>
-                <FileText size={20} color="#eab308" /> <strong style={{ fontSize: '18px' }}>Предложения</strong>
-              </div>
-              <div >
-                <p>{truck.Предложения} </p>
-                {truck.img2 && <img src={truck.img2} alt="" width={235} height={"auto"} />}
-              </div>
-            </div> */}
 
             {truck.competitors && truck.competitors.length > 0 && (
               <div style={{ marginTop: '40px' }}>
