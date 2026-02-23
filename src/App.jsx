@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import './App.css';
 import { TRUCKS_DATA } from './data.jsx';
+import logo from './assets/logo.jpg';
 
 // RASMNI IMPORT QILISH (Rasmingiz src/assets/ ichida bo'lishi kerak)
 import taplink from './assets/taplink.jpg';
@@ -23,9 +24,12 @@ const CatalogPage = () => {
   return (
     <div className="app-container">
       {/* 1. SAHIFA TEPASIGA H2 QO'SHILDI */}
-      <h2 style={{ textAlign: 'center', color: '#1e293b', marginTop: '0px', marginBottom: '20px' }}>
-        КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ от компании UAT
-      </h2>
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', gap: "20px" , justifyContent: 'center' }}>
+        <img style={{ width: "70px", borderRadius: "5px" }} src={logo} alt="logo" />
+        <h2 style={{ textAlign: 'center', color: '#1e293b', }}>
+          КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ от компании UAT
+        </h2>
+      </div>
 
       <div className="truck-grid">
         {filteredTrucks.map(truck => (

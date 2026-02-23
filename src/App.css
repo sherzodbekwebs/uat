@@ -14,7 +14,8 @@ body {
 /* --- 2. KONTEYNERLAR --- */
 .app-container {
   margin: 0;
-  padding: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .app-containerr {
