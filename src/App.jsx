@@ -44,11 +44,13 @@ const CatalogPage = () => {
           justifyContent: 'center',
           padding: '0 20px'
         }}>
-          <img
-            style={{ width: "90px", height: "50px", borderRadius: "10px", boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
-            src={logo}
-            alt="logo"
-          />
+          <a href="https://uzautotrailer.uz/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '15px', textDecoration: 'none' }}>
+            <img
+              style={{ width: "90px", height: "50px", borderRadius: "10px", boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
+              src={logo}
+              alt="logo"
+            />
+          </a>
           <div style={{ textAlign: 'left' }}>
             <h2 style={{
               margin: 0,
@@ -68,9 +70,9 @@ const CatalogPage = () => {
       {/* TRUCK GRID (Katalog qismi) */}
       <div className="truck-grid">
         {filteredTrucks.map(truck => (
-          <div 
-            className="truck-card" 
-            key={truck.id} 
+          <div
+            className="truck-card"
+            key={truck.id}
             onClick={() => navigate(`/truck/${truck.id}`)}
             style={{ backgroundColor: truck.status ? '#dcfce7' : '#fef9c3' }} // SHART SHU YERDA
           >
@@ -93,15 +95,13 @@ const CatalogPage = () => {
         borderRadius: '12px',
         border: '1px solid #e2e8f0'
       }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-            <div style={{ width: '20px', height: '20px', backgroundColor: '#dcfce7', border: '2px solid #22c55e', borderRadius: '4px' }}></div>
-            <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>имеется в наличии</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '20px', height: '20px', backgroundColor: '#fef9c3', border: '2px solid #eab308', borderRadius: '4px' }}></div>
-            <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>по заказу</span>
-          </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', }}>
+          <div style={{ width: '40px', height: '40px', backgroundColor: '#dcfce7', border: '2px solid #22c55e', borderRadius: '4px' }}></div>
+          <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>имеется в наличии</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ width: '40px', height: '40px', backgroundColor: '#fef9c3', border: '2px solid #eab308', borderRadius: '4px' }}></div>
+          <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>по заказу</span>
         </div>
         <div style={{}}>
           <div style={{
@@ -111,11 +111,11 @@ const CatalogPage = () => {
             justifyContent: 'center',
             flexWrap: 'wrap'
           }}>
-            <div style={{ textAlign: 'center' }}>
-              <p style={{ margin: '0 0 5px 0', color: '#64748b', fontSize: '13px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            <div style={{ textAlign: 'center', display: "flex", alignItems: "center", gap: "10px" }}>
+              <p style={{ margin: '0 ', color: '#64748b', fontSize: '13px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px' }}>
                 Телефон call-центра:
               </p>
-              <h3 style={{ fontSize: '20px', color: '#0f172a', margin: 0, fontWeight: '500' }}>
+              <h3 style={{ fontSize: '15px', color: '#0f172a', margin: 0, fontWeight: '500' }}>
                 <a href="tel:+998712023223" style={{ textDecoration: 'none', color: 'inherit' }}>
                   71 202 32 23
                 </a>
@@ -130,7 +130,6 @@ const CatalogPage = () => {
             alt="taplink"
             style={{ width: '80px', height: '80px', objectFit: 'contain', borderRadius: '18px', boxShadow: '0 4px 15px rgba(0,0,0,0.08)' }}
           />
-          <span style={{ fontSize: '12px', color: '#94a3b8', fontWeight: '500' }}>Наши соцсети</span>
         </div>
       </div>
 
