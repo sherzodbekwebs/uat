@@ -74,7 +74,7 @@ const CatalogPage = () => {
             className="truck-card"
             key={truck.id}
             onClick={() => navigate(`/truck/${truck.id}`)}
-            style={{ backgroundColor: truck.status ? '#dcfce7' : '#fef9c3' }} // SHART SHU YERDA
+            style={{ backgroundColor: "#eef1f4" }} // SHART SHU YERDA
           >
             <img src={truck.img} alt="img" />
             <div className="card-info"></div>
@@ -95,14 +95,14 @@ const CatalogPage = () => {
         borderRadius: '12px',
         border: '1px solid #e2e8f0'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', }}>
+        {/* <div style={{ display: 'flex', alignItems: 'center', gap: '10px', }}>
           <div style={{ width: '40px', height: '40px', backgroundColor: '#dcfce7', border: '2px solid #22c55e', borderRadius: '4px' }}></div>
           <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>имеется в наличии</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{ width: '40px', height: '40px', backgroundColor: '#fef9c3', border: '2px solid #eab308', borderRadius: '4px' }}></div>
           <span style={{ fontSize: '14px', color: '#334155', fontWeight: '600' }}>по заказу</span>
-        </div>
+        </div> */}
         <div style={{}}>
           <div style={{
             display: 'flex',
